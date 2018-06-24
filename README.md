@@ -3,7 +3,10 @@ SD Card AXI4 IP
 
 
 SD Card Host Controller with an AXI4 interfaced. A quick and simple solution to get an access to FAT file system from Microblaze soft-cpu.
-Works only in SPI mode, with older SD and newer SDHC cards. 
+Works only in SPI mode, with older SD and newer SDHC cards (in byte and sector addressing mode). To use it with FatFs library use three simple functions (see diskio.c and diskio.h). To read/write a single sector you have to use  Xil_Out32 and memcpy functions. A base address assigned in Vivado block diagram must be specified in diskio.h. For now only single sector access, no DMA. Tested on Artix-35T.
+
+
+
 
 ```c
 /*-----------------------------------------------------------------------*/
